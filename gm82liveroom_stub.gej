@@ -1,24 +1,24 @@
 {
-	"name": "Game Maker 8.2 Live Stub",
+	"name": "Game Maker 8.2 LR Stub",
 	"folder": "gm82",
-	"version": "0.3",
+	"version": "0.4",
 	"author": "renex",
-	"date": "03/01/2025",
-	"license": "Free to use, also for commercial games.",
-	"description": "Stub version of the Live extension. Used in production builds of games utilising the extension.",
+	"date": "09/04/2025",
+	"license": "",
+	"description": "Stub version of the Live Room extension. Used for production builds of games utilising the extension.",
 	"helpfile": "",
 	"hidden": false,
 	"dependencies": [],
 	"files": [
 		{
-			"filename": "gm82live_stub.gml",
-			"origname": "gm82live_stub.gml",
+			"filename": "gm82liveroom_stub.gml",
+			"origname": "gm82liveroom_stub.gml",
 			"kind": 2,
 			"init": "",
 			"final": "",
 			"functions": [
 				{
-					"name": "live_path_reload",
+					"name": "liveroom_path_reload",
 					"extname": "",
 					"calltype": 2,
 					"helpline": "live_path_reload()",
@@ -27,10 +27,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "live_roomeditor_add_obj_exclusion",
+					"name": "liveroom_add_obj_exclusion",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "live_roomeditor_add_obj_exclusion(object)",
+					"helpline": "liveroom_add_obj_exclusion(object)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -38,19 +38,19 @@
 					"returntype": 2
 				},
 				{
-					"name": "live_roomeditor_start",
+					"name": "liveroom_start",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "live_roomeditor_start()",
+					"helpline": "liveroom_start()",
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2
 				},
 				{
-					"name": "live_roomeditor_status",
+					"name": "liveroom_status",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "live_roomeditor_status()",
+					"helpline": "liveroom_status()",
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2

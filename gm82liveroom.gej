@@ -1,0 +1,92 @@
+{
+	"name": "Game Maker 8.2 Live Room",
+	"folder": "gm82",
+	"version": "0.4",
+	"author": "renex",
+	"date": "09/04/2025",
+	"license": "Free to use, also for commercial games.",
+	"description": "Part of the standard Game Maker 8.2 distribution. This extension package allows realtime room editing.",
+	"helpfile": "",
+	"hidden": false,
+	"dependencies": [
+		"Game Maker 8.2 Core",
+		"Game Maker 8.2 Network"
+	],
+	"files": [
+		{
+			"filename": "gm82liveroom.gml",
+			"origname": "gm82liveroom.gml",
+			"kind": 2,
+			"init": "__gm82liveroom_init",
+			"final": "",
+			"functions": [
+				{
+					"name": "liveroom_add_obj_exclusion",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "liveroom_add_obj_exclusion(object)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "liveroom_path_reload",
+					"extname": "__gm82liveroom_path_reload",
+					"calltype": 2,
+					"helpline": "liveroom_path_reload()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "liveroom_start",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "liveroom_start()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "liveroom_status",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "liveroom_status()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "__gm82liveroom_init",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82liveroom_poll",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82liveroom_request",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				}
+			],
+			"constants": []
+		}
+	]
+}
