@@ -1,10 +1,10 @@
 {
-	"name": "Game Maker 8.2 LR Stub",
+	"name": "Game Maker 8.2 Live Room Stub",
 	"folder": "gm82",
-	"version": "0.4",
+	"version": "0.5",
 	"author": "renex",
 	"date": "09/04/2025",
-	"license": "",
+	"license": "Free to use, also for commercial games.",
 	"description": "Stub version of the Live Room extension. Used for production builds of games utilising the extension.",
 	"helpfile": "",
 	"hidden": false,

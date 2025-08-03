@@ -42,8 +42,8 @@
         if (__gm82liveroom_listen==noone) {
             object_event_add(gm82core_object,ev_step,ev_step_begin,"__gm82liveroom_poll()")
             object_event_add(gm82core_object,ev_other,ev_room_start,"__gm82liveroom_request()")
-            __gm82liveroom_listen=listeningsocket_create()
-            listeningsocket_start_listening(__gm82liveroom_listen,0,4126,1)
+            __gm82liveroom_listen=listener_create()
+            listener_start(__gm82liveroom_listen,0,4126,1)
         }
     }
 
@@ -69,15 +69,15 @@
 
 
 #define __gm82liveroom_poll
-    if (listeningsocket_can_accept(__gm82liveroom_listen)) {
+    if (listener_pending(__gm82liveroom_listen)) {
         //currently if a second connection is made this will leak a buffer and a socket
         __gm82liveroom_sock=socket_create()
         __gm82liveroom_buf=buffer_create()
-        listeningsocket_accept(__gm82liveroom_listen,__gm82liveroom_sock)
+        listener_accept(__gm82liveroom_listen,__gm82liveroom_sock)
     }
     var __obj,__i;
     if (__gm82liveroom_sock!=noone) {
-        socket_update_read(__gm82liveroom_sock)
+        socket_receive(__gm82liveroom_sock)
         while (socket_read_message(__gm82liveroom_sock,__gm82liveroom_buf)) {
             buffer_set_pos(__gm82liveroom_buf,0)
             type=buffer_read_u8(__gm82liveroom_buf)
@@ -154,7 +154,7 @@
         buffer_clear(__gm82liveroom_buf)
         buffer_write_u8(__gm82liveroom_buf,1)
         socket_write_message(__gm82liveroom_sock,__gm82liveroom_buf)
-        socket_update_write(__gm82liveroom_sock)
+        socket_send(__gm82liveroom_sock)
     }
 //
 //
