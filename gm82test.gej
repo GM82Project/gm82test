@@ -68,6 +68,17 @@
 					"returntype": 2
 				},
 				{
+					"name": "trycatch",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "trycatch(code/script)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
 					"name": "__gm82test_init",
 					"extname": "",
 					"calltype": 2,

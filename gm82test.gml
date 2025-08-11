@@ -28,6 +28,22 @@
     return 0
 
 
+#define trycatch
+    ///trycatch(code/script)
+    //code: string to execute
+    //Returns whether the code executed caused an error. Get the error message with error_last.
+    
+    var __ret,__err;
+    __err=error_is_enabled()
+    if (__err) error_set_enabled(false)
+    error_last=""
+    if (is_string(argument0)) execute_string(argument0) else script_execute(argument0)
+    __ret=error_occurred
+    error_occurred=false
+    if (__err) error_set_enabled(true)
+    return __ret
+
+
 //----------------------live path module----------------------------------------
 
 #define test_path_reload

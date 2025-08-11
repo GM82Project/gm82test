@@ -63,6 +63,17 @@
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2
+				},
+				{
+					"name": "trycatch",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "trycatch(code)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
 				}
 			],
 			"constants": []
