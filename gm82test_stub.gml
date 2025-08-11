@@ -1,2 +1,4 @@
+#define assert
+    return true
 //
 //

@@ -5,6 +5,29 @@
     globalvar __gm82test_directory;__gm82test_directory=working_directory
 
 
+//----------------------testing-------------------------------------------------
+
+#define assert
+    ///assert(expression,expected,[message])
+    //expression: value to check
+    //expected: value to check against
+    //message: optional string to append to the error message on failure
+    
+    repeat (1) {
+        if (is_string(argument[0])!=is_string(argument[1])) break
+        if (argument[0]!=argument[1]) break
+        return 1
+    }
+    
+    var __err;__err="ASSERT: "+string(argument[0])+pick(is_string(argument[0])," (real)"," (string)")+" != "+string(argument[1])+pick(is_string(argument[1])," (real)"," (string)")
+    if (argument_count==3) __err+=" - "+string(argument[2])
+    
+    if (debug_mode) show_debug_message(__err)
+    else show_error(__err,0)
+    
+    return 0
+
+
 //----------------------live path module----------------------------------------
 
 #define test_path_reload

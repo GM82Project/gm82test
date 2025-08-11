@@ -18,6 +18,15 @@
 			"final": "",
 			"functions": [
 				{
+					"name": "assert",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "assert(expression,expected,[message])",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
 					"name": "test_path_reload",
 					"extname": "",
 					"calltype": 2,
