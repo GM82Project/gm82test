@@ -4,7 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-liveroom_start()
+test_room_start()
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

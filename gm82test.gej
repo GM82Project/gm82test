@@ -1,9 +1,9 @@
 {
-	"name": "Game Maker 8.2 Live Room",
+	"name": "Game Maker 8.2 Test",
 	"folder": "gm82",
 	"version": "0.5",
 	"author": "renex",
-	"date": "03/08/2025",
+	"date": "11/08/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package allows realtime room editing.",
 	"helpfile": "",
@@ -14,17 +14,26 @@
 	],
 	"files": [
 		{
-			"filename": "gm82liveroom.gml",
-			"origname": "gm82liveroom.gml",
+			"filename": "gm82test.gml",
+			"origname": "gm82test.gml",
 			"kind": 2,
-			"init": "__gm82liveroom_init",
+			"init": "__gm82test_init",
 			"final": "",
 			"functions": [
 				{
-					"name": "liveroom_add_obj_exclusion",
+					"name": "test_path_reload",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "liveroom_add_obj_exclusion(object)",
+					"helpline": "test_path_reload()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "test_room_exclude_object",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "test_room_exclude_object(object)",
 					"hidden": false,
 					"argtypes": [
 						2
@@ -32,34 +41,25 @@
 					"returntype": 2
 				},
 				{
-					"name": "liveroom_path_reload",
-					"extname": "__gm82liveroom_path_reload",
-					"calltype": 2,
-					"helpline": "liveroom_path_reload()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "liveroom_start",
+					"name": "test_room_start",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "liveroom_start()",
+					"helpline": "test_room_start()",
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2
 				},
 				{
-					"name": "liveroom_status",
+					"name": "test_room_status",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "liveroom_status()",
+					"helpline": "test_room_status()",
 					"hidden": false,
 					"argtypes": [],
 					"returntype": 2
 				},
 				{
-					"name": "__gm82liveroom_init",
+					"name": "__gm82test_init",
 					"extname": "",
 					"calltype": 2,
 					"helpline": "",
@@ -68,7 +68,7 @@
 					"returntype": 2
 				},
 				{
-					"name": "__gm82liveroom_poll",
+					"name": "__gm82test_room_poll",
 					"extname": "",
 					"calltype": 2,
 					"helpline": "",
@@ -77,7 +77,7 @@
 					"returntype": 2
 				},
 				{
-					"name": "__gm82liveroom_request",
+					"name": "__gm82test_room_request",
 					"extname": "",
 					"calltype": 2,
 					"helpline": "",
