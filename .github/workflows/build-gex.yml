@@ -1,0 +1,28 @@
+name: Build .gex
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+    - name: Download gm82gex
+      run: wget https://raw.githubusercontent.com/GM82Project/gm82gex/main/gm82gex.py
+    - name: Build .gex
+      run: python gm82gex.py ${{github.workspace}}/gm82drag.gej --noinstall
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: gm82test
+        path: gm82test.gex
