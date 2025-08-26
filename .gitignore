@@ -2,3 +2,4 @@ target
 *.dll
 *.gex
 gm82gex.py
+desktop.ini
