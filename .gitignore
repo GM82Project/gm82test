@@ -1,4 +1,4 @@
-target
+build
 *.dll
 *.gex
 gm82gex.py

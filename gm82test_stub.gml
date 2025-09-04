@@ -1,3 +1,7 @@
+#define __gm82test_init
+    globalvar gm82test_version;gm82test_version=060
+
+
 #define assert
     repeat (1) {
         if (is_string(argument[0])!=is_string(argument[1])) break

@@ -1,9 +1,9 @@
 {
 	"name": "Game Maker 8.2 Test",
 	"folder": "gm82",
-	"version": "0.5",
-	"author": "renex",
-	"date": "11/08/2025",
+	"version": "0.6",
+	"author": "renex, Verve",
+	"date": "04/09/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package allows realtime room editing.",
 	"helpfile": "",
@@ -79,6 +79,37 @@
 					"returntype": 2
 				},
 				{
+					"name": "variable_instance_count",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "variable_instance_count(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "variable_instance_get_all",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "variable_instance_get_all(id)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "variable_instance_get_next",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "variable_instance_get_next()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
 					"name": "__gm82test_init",
 					"extname": "",
 					"calltype": 2,
@@ -104,6 +135,54 @@
 					"hidden": true,
 					"argtypes": null,
 					"returntype": 2
+				}
+			],
+			"constants": []
+		},
+		{
+			"filename": "inst_meta.dll",
+			"origname": "build/Release/gm82test.dll",
+			"kind": 1,
+			"init": "__gm82_inst_meta_init",
+			"final": "__gm82_inst_meta_final",
+			"functions": [
+				{
+					"name": "__gm82_inst_meta_init",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "__gm82_inst_meta_final",
+					"extname": "",
+					"calltype": 12,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "__gm82_inst_meta_count",
+					"extname": "variable_instance_names_start",
+					"calltype": 12,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "__gm82_inst_meta_next",
+					"extname": "variable_instance_names_next",
+					"calltype": 12,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": [],
+					"returntype": 1
 				}
 			],
 			"constants": []

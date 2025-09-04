@@ -3,6 +3,9 @@
     globalvar __gm82test_sock;__gm82test_sock=noone
     globalvar __gm82test_nochange;__gm82test_nochange=ds_list_create()
     globalvar __gm82test_directory;__gm82test_directory=working_directory
+    globalvar __gm82test_ivi_scope,__gm82test_ivi_event,__gm82test_ivi_getting;
+    
+    globalvar gm82test_version;gm82test_version=060
 
 
 //----------------------testing-------------------------------------------------
@@ -195,5 +198,62 @@
         socket_write_message(__gm82test_sock,__gm82test_buf)
         socket_send(__gm82test_sock)
     }
+
+
+//-----------------------------------variables----------------------------------
+
+//Instance reflection for Game Maker 8 (c) iwVerve 2025
+
+#define variable_instance_get_all
+    ///variable_instance_get_all(id)
+    //id: instance to parse
+    //returns: dsmap with all the instance's variables and their values
+    var __map,__name;
+    
+    if (argument0>=100000) with (argument0) {
+        __map=ds_map_create()
+        repeat (__gm82_inst_meta_count(argument0)) {
+            __name=__gm82_inst_meta_next()
+            ds_map_add(__map,__name,variable_local_get(__name))
+        }
+        return __map
+    }
+    
+    show_error("Error in function variable_instance_get_all: nonexisting instance ("+string(argument0)+")",0)
+    return noone
+
+
+#define variable_instance_count
+    ///variable_instance_count(id)
+    //id: instance to parse
+    //returns: number of variables
+    //Starts parsing instance variables, and returns the number of entries.
+    //Use variable_instance_get_next() to iterate the count.
+    
+    __gm82test_ivi_scope=id
+    __gm82test_ivi_event=event_type    
+        
+    if (argument0>=100000) if (instance_exists(argument0)) {
+        __gm82test_ivi_getting=id
+        return __gm82_inst_meta_count(argument0)
+    }
+    show_error("Error in function variable_instance_count: nonexisting instance ("+string(argument0)+")",0)
+    return 0
+
+
+#define variable_instance_get_next
+    ///variable_instance_get_next()
+    //Returns the next variable name when iterating instance variables.
+    
+    if (__gm82test_ivi_scope!=id or __gm82test_ivi_event!=event_type) {
+        show_error("Error in function variable_instance_get_next: the iterator scope has expired. You need to get all variables immediately after starting the iterator.",0)
+        return ""
+    }
+    if (!instance_exists(__gm82test_ivi_getting)) {
+        show_error("Error in function variable_instance_get_next: the instance being iterated ("+string(argument0)+") ceased to exist!",0)
+        return ""
+    }
+    
+    return __gm82_inst_meta_next()
 //
 //
