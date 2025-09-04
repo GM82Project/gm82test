@@ -70,11 +70,11 @@ StringList name_cache;
 
 // Asserts index < *VAR_NAME_COUNT_PTR
 void cache_variable_name(int index) {
-    void *names = *(void **)VAR_NAME_LIST_PTR;
+    char *names = *(void **)VAR_NAME_LIST_PTR;
     char *name_utf16 = *(void **)(names + 4 * index);
     int name_len = *(int *)(name_utf16 - 4);
 
-    char *name_ascii = malloc(name_len + 0);
+    char *name_ascii = (char *)malloc(name_len + 0);
     for (int i = 0; i < name_len; i += 1) {
         name_ascii[i] = name_utf16[2 * i];
     }
@@ -124,7 +124,7 @@ typedef struct {
     char padding_a[4];
     int id;
     char padding_b[252];
-    void *vars;
+    char *vars;
     char padding_c[120];
 } Instance;
 
@@ -137,14 +137,14 @@ Variable *get_instance_variable_list(Instance *instance) {
 }
 
 int get_instance_count() {
-    void *inst_data = *(void **)INST_DATA_PTR;
+    char *inst_data = *(void **)INST_DATA_PTR;
     return *(int *)(inst_data + 104);
 }
 
 // Performs bounds checks.
 // Returns NULL on error.
 Instance *get_instance_by_index(int index) {
-    void *inst_data = *(void **)INST_DATA_PTR;
+    char *inst_data = *(void **)INST_DATA_PTR;
 
     int instance_count = *(int *)(inst_data + 104);
     if (index < 0 || index >= instance_count) {
