@@ -195,13 +195,18 @@ int iterator_start(int id) {
         return 0;
     }
 
+    iterator.length = get_instance_variable_count(iterator.instance);
+    if (iterator.length == 0) {
+        iterator.list = NULL;
+        return 0;
+    }
+
     iterator.list = get_instance_variable_list(iterator.instance);
     if (iterator.list == NULL) {
         iterator.length = 0;
         return 0;
     }
 
-    iterator.length = get_instance_variable_count(iterator.instance);
     return iterator.length;
 }
 
