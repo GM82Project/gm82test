@@ -30,6 +30,46 @@
 					"returntype": 2
 				},
 				{
+					"name": "benchmark_start",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "benchmark_start()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "benchmark_end",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "benchmark_end()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "benchmark_report",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "benchmark_report(name)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
+					"name": "benchmark_end_and_report",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "benchmark_end_and_report(name)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
 					"name": "test_path_reload",
 					"extname": "",
 					"calltype": 2,
