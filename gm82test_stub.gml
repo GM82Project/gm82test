@@ -2,6 +2,10 @@
     globalvar gm82test_version;gm82test_version=060
 
 
+#define test_is_stub
+    return true
+
+
 #define assert
     repeat (1) {
         if (is_string(argument[0])!=is_string(argument[1])) break

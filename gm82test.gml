@@ -10,6 +10,8 @@
     globalvar gm82test_version;gm82test_version=060
 
 
+#define test_is_stub
+    return false
 //----------------------testing-------------------------------------------------
 
 #define assert
