@@ -4,6 +4,8 @@
     globalvar __gm82test_nochange;__gm82test_nochange=ds_list_create()
     globalvar __gm82test_directory;__gm82test_directory=working_directory
     globalvar __gm82test_ivi_scope,__gm82test_ivi_event,__gm82test_ivi_getting;
+    globalvar __gm82test_benchmark_start_time;__gm82test_benchmark_start_time=0
+    globalvar __gm82test_benchmark_end_time;__gm82test_benchmark_end_time=0
     
     globalvar gm82test_version;gm82test_version=060
 
@@ -29,6 +31,34 @@
     else show_error(__err,0)
     
     return 0
+
+
+#define benchmark_start
+    ///benchmark_start()
+    //Starts a benchmark.
+    __gm82test_benchmark_start_time=get_timer();
+
+
+#define benchmark_end
+    ///benchmark_end()
+    //Returns the time taken since the benchmark started.
+    __gm82test_benchmark_end_time=get_timer()
+    return __gm82test_benchmark_end_time-__gm82test_benchmark_start_time
+
+
+#define benchmark_report
+    ///benchmark_report(name)
+    //name: name of the benchmark
+    //Reports a message on the result of the benchmark, in microseconds.
+    show_message(argument0+": "+string(__gm82test_benchmark_end_time-__gm82test_benchmark_start_time)+" microseconds")
+
+
+#define benchmark_end_and_report
+    ///benchmark_end_and_report(name)
+    //name: name of the benchmark
+    //Ends and reports a message on the result of the benchmark, in microseconds.
+    benchmark_end()
+    benchmark_report(argument0)
 
 
 #define trycatch
