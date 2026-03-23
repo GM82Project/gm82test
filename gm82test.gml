@@ -12,6 +12,8 @@
 
 #define test_is_stub
     return false
+
+
 //----------------------testing-------------------------------------------------
 
 #define assert
