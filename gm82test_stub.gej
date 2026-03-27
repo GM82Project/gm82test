@@ -67,6 +67,15 @@
 					"returntype": 2
 				},
 				{
+					"name": "test_is_stub",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "test_is_stub()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
 					"name": "test_path_reload",
 					"extname": "",
 					"calltype": 2,
