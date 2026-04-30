@@ -294,15 +294,12 @@
 #define variable_global_get_all
     ///variable_global_get_all()
     //returns: dsmap with all the global variables and their values
-    var __map,__name,__i,__count;
+    var __map,__name;
     __map=ds_map_create()
     
-    __count = __gm82_var_name_count();
-    for (__i = 0; __i < __count; __i += 1) {
-        __name = __gm82_var_name_get(__i);
-        if (variable_global_exists(__name)) {
-            ds_map_add(__map, __name, variable_global_get(__name));
-        }
+    repeat (variable_global_count()) {
+        __name = variable_global_get_next();
+        ds_map_add(__map, __name, variable_global_get(__name));
     }
     return __map
 
