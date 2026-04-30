@@ -242,3 +242,11 @@ GMREAL variable_instance_names_start(double id) {
 GMSTR variable_instance_names_next() {
     return iterator_next();
 }
+
+GMREAL __gm82_var_name_count() {
+    return *(int *)VAR_NAME_COUNT_PTR;
+}
+
+GMSTR __gm82_var_name_get(double index) {
+    return get_variable_name((int)index);
+}

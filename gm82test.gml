@@ -8,7 +8,8 @@
     globalvar __gm82test_benchmark_end_time;__gm82test_benchmark_end_time=0
     
     globalvar gm82test_version;gm82test_version=060
-
+    globalvar __gm82test_global_keys; __gm82test_global_keys=ds_list_create()
+    globalvar __gm82test_global_iterator; __gm82test_global_iterator=0
 
 #define test_is_stub
     return false
@@ -289,5 +290,61 @@
     }
     
     return __gm82_inst_meta_next()
+
+#define variable_global_get_all
+    ///variable_global_get_all()
+    //returns: dsmap with all the global variables and their values
+    var __map,__name;
+    __map=ds_map_create()
+    
+    repeat (variable_global_count()) {
+        __name = variable_global_get_next();
+        ds_map_add(__map, __name, variable_global_get(__name));
+    }
+    return __map
+
+
+#define variable_global_count
+    ///variable_global_count()
+    //returns: number of variables
+    //Starts parsing global variables, and returns the number of entries.
+    //Use variable_global_get_next() to iterate the count.
+    
+    __gm82test_ivi_scope=id
+    __gm82test_ivi_event=event_type    
+    __gm82test_ivi_getting=-5
+    
+    ds_list_clear(__gm82test_global_keys);
+    
+    var __name,__i,__count;
+    __count = __gm82_var_name_count();
+    for (__i = 0; __i < __count; __i += 1) {
+        __name = __gm82_var_name_get(__i);
+        if (variable_global_exists(__name)) {
+            ds_list_add(__gm82test_global_keys, __name);
+        }
+    }
+    
+    __gm82test_global_iterator = 0;
+    return ds_list_size(__gm82test_global_keys);
+
+
+#define variable_global_get_next
+    ///variable_global_get_next()
+    //Returns the next variable name when iterating global variables.
+    
+    if (__gm82test_ivi_scope!=id or __gm82test_ivi_event!=event_type) {
+        show_error("Error in function variable_global_get_next: the iterator scope has expired. You need to get all variables immediately after starting the iterator.",0)
+        return ""
+    }
+    
+    var __name;
+    if (__gm82test_global_iterator < ds_list_size(__gm82test_global_keys)) {
+        __name = ds_list_find_value(__gm82test_global_keys, __gm82test_global_iterator);
+        __gm82test_global_iterator += 1;
+        return __name;
+    }
+    
+    return ""
 //
 //
