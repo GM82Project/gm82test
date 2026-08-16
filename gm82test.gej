@@ -70,6 +70,17 @@
 					"returntype": 2
 				},
 				{
+					"name": "debug_log",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "debug_log(message)",
+					"hidden": false,
+					"argtypes": [
+						1
+					],
+					"returntype": 2
+				},
+				{
 					"name": "test_is_stub",
 					"extname": "",
 					"calltype": 2,
