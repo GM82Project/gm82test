@@ -66,6 +66,13 @@
     benchmark_report(argument0)
 
 
+#define debug_log
+    ///debug_log(message)
+    //message: string to be show in the debug console
+    //Shows a message in the debug console
+    show_debug_message(argument0)
+
+
 #define trycatch
     ///trycatch(code/script)
     //code: string to execute
