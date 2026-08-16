@@ -75,7 +75,7 @@
     if (!__gm82test_checked_for_con) {
         globalvar gm82con_version;
         if (gm82con_version>=100) {
-            __gm82test_conwrite=code_compile('console_write("[debug] "+string(argument0)+vk_crlf)')
+            __gm82test_conwrite=code_compile('console_write(cc_darkyellow+"[debug] "+cc_gray+string(argument0)+vk_crlf)')
             __gm82test_checked_for_con=2
         } else __gm82test_checked_for_con=1
     }
