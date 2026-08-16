@@ -10,6 +10,8 @@
     globalvar gm82test_version;gm82test_version=060
     globalvar __gm82test_global_keys; __gm82test_global_keys=ds_list_create()
     globalvar __gm82test_global_iterator; __gm82test_global_iterator=0
+    
+    globalvar __gm82test_checked_for_con,__gm82test_conwrite;
 
 #define test_is_stub
     return false
@@ -70,6 +72,15 @@
     ///debug_log(message)
     //message: string to be show in the debug console
     //Shows a message in the debug console
+    if (!__gm82test_checked_for_con) {
+        globalvar gm82con_version;
+        if (gm82con_version>=100) {
+            __gm82test_conwrite=code_compile('console_write("[debug] "+string(argument0)+vk_crlf)')
+            __gm82test_checked_for_con=2
+        } else __gm82test_checked_for_con=1
+    }
+    
+    if (__gm82test_checked_for_con==2) code_execute(__gm82test_conwrite,argument0)
     show_debug_message(argument0)
 
 
